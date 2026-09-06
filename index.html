@@ -460,7 +460,7 @@ footer{
 <!-- FEATURED -->
 <div class="featured-wrapper">
   <p class="featured-label">⭐ In primo piano</p>
-  <a class="featured-card" href="https://beforteu.github.io/CAA/" target="_blank" rel="noopener">
+  <a class="featured-card" href="https://rideq.github.io/CAA/" target="_blank" rel="noopener">
     <span class="featured-badge">NUOVO</span>
     <div class="featured-icon">🏫</div>
     <div class="featured-content">
@@ -539,14 +539,14 @@ footer{
 
 <script>
 const DEFAULT_LINKS = [
-  {id:'valutazione',title:'Valutazione Azienda',url:'https://beforteu.github.io/Valutazione-Azienda/',desc:'Strumento completo per valutare PMI italiane: EV/EBITDA, DCF, patrimoniale, EV/Revenue con 50+ settori e sensitività.',category:'Finanza',icon:'🏢'},
-  {id:'policyos',title:'Bilancio Policy OS',url:'https://beforteu.github.io/PolicyOS/',desc:'Simulatore e laboratorio di policy per il bilancio dello Stato italiano: dashboard, analisi, proposte e proiezioni pensionistiche.',category:'Finanza pubblica',icon:'📊'},
-  {id:'tracciati',title:'Tracciati Trasformazioni',url:'https://beforteu.github.io/TracciatiTrasformazione/',desc:'Applicazione per leggere file Excel ("tracciati") e trasformarli secondo mappature configurabili, con supporto SFTP.',category:'Strumenti dati',icon:'🔁'},
-  {id:'rightplace',title:'RightPlace',url:'https://beforteu.github.io/RightPlace/',desc:"Mappa intelligente dell'Italia: punteggi di quartiere, prezzi, sicurezza e servizi per la scelta della casa ideale.",category:'Real Estate',icon:'📍'},
+  {id:'valutazione',title:'Valutazione Azienda',url:'https://rideq.github.io/Valutazione-Azienda/',desc:'Strumento completo per valutare PMI italiane: EV/EBITDA, DCF, patrimoniale, EV/Revenue con 50+ settori e sensitività.',category:'Finanza',icon:'🏢'},
+  {id:'policyos',title:'Bilancio Policy OS',url:'https://rideq.github.io/PolicyOS/',desc:'Simulatore e laboratorio di policy per il bilancio dello Stato italiano: dashboard, analisi, proposte e proiezioni pensionistiche.',category:'Finanza pubblica',icon:'📊'},
+  {id:'tracciati',title:'Tracciati Trasformazioni',url:'https://rideq.github.io/TracciatiTrasformazione/',desc:'Applicazione per leggere file Excel ("tracciati") e trasformarli secondo mappature configurabili, con supporto SFTP.',category:'Strumenti dati',icon:'🔁'},
+  {id:'rightplace',title:'RightPlace',url:'https://rideq.github.io/RightPlace/',desc:"Mappa intelligente dell'Italia: punteggi di quartiere, prezzi, sicurezza e servizi per la scelta della casa ideale.",category:'Real Estate',icon:'📍'},
 
-  {id:'eustock',title:'EuropeanStock AI',url:'https://beforteu.github.io/EuropeanStockAI/',desc:'Screener delle principali borse europee (FTSE MIB, DAX, CAC 40, IBEX, EURO STOXX 50) con dati di bilancio e growth score.',category:'Finanza',icon:'📈'},
-  {id:'prezzimedicase',title:'Prezzi Medi Case',url:'https://beforteu.github.io/PrezziMediCasa/',desc:"Mappa interattiva dei prezzi medi al mq per provincia in Italia, basata sui dati OMI dell'Agenzia delle Entrate.",category:'Real Estate',icon:'🏠'},
-  {id:'caa',title:'Immagini CAA',url:'https://beforteu.github.io/CAA/',desc:'Scrivi una frase, vedi le immagini. Strumento CAA gratuito per bambini con DSA e difficoltà di linguaggio. Pittogrammi ARASAAC + Mulberry Symbols, colori Fitzgerald Key, sintesi vocale italiana.',category:'Accessibilità',icon:'🏫'}
+  {id:'eustock',title:'EuropeanStock AI',url:'https://rideq.github.io/EuropeanStockAI/',desc:'Screener delle principali borse europee (FTSE MIB, DAX, CAC 40, IBEX, EURO STOXX 50) con dati di bilancio e growth score.',category:'Finanza',icon:'📈'},
+  {id:'prezzimedicase',title:'Prezzi Medi Case',url:'https://rideq.github.io/PrezziMediCasa/',desc:"Mappa interattiva dei prezzi medi al mq per provincia in Italia, basata sui dati OMI dell'Agenzia delle Entrate.",category:'Real Estate',icon:'🏠'},
+  {id:'caa',title:'Immagini CAA',url:'https://rideq.github.io/CAA/',desc:'Scrivi una frase, vedi le immagini. Strumento CAA gratuito per bambini con DSA e difficoltà di linguaggio. Pittogrammi ARASAAC + Mulberry Symbols, colori Fitzgerald Key, sintesi vocale italiana.',category:'Accessibilità',icon:'🏫'}
 ];
 
 const ADMIN_PASSWORD = 'befort2026';
@@ -554,7 +554,21 @@ const STORAGE_KEY = 'befort_links';
 
 function loadLinks(){
   const raw = localStorage.getItem(STORAGE_KEY);
-  if(raw){ try{ return JSON.parse(raw); }catch(e){} }
+  if(raw){
+    try{
+      const stored = JSON.parse(raw);
+      // Migrazione: aggiorna eventuali link salvati che puntano ancora al vecchio dominio.
+      let changed = false;
+      stored.forEach(l=>{
+        if(l && typeof l.url==='string' && l.url.includes('beforteu.github.io')){
+          l.url = l.url.replace('beforteu.github.io','rideq.github.io');
+          changed = true;
+        }
+      });
+      if(changed) saveLinks(stored);
+      return stored;
+    }catch(e){}
+  }
   return DEFAULT_LINKS;
 }
 function saveLinks(links){ localStorage.setItem(STORAGE_KEY, JSON.stringify(links)); }
