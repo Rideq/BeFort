@@ -366,7 +366,7 @@ footer{
 <!-- FEATURED -->
 <div class="featured-wrapper">
   <p class="featured-label">⭐ In primo piano</p>
-  <a class="featured-card" href="https://rideq.github.io/CAA/" target="_blank" rel="noopener">
+  <a class="featured-card" data-tool="caa" href="https://rideq.github.io/CAA/" target="_blank" rel="noopener">
     <span class="featured-badge">NUOVO</span>
     <div class="featured-icon">🏫</div>
     <div class="featured-content">
@@ -449,7 +449,7 @@ function renderGrid(){
     return matchCat && (!term || haystack.includes(term));
   });
   grid.innerHTML = filtered.map(l=>`
-    <a class="card" href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">
+    <a class="card" data-tool="${escapeHtml(l.id)}" href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">
       <div class="icon" aria-hidden="true">${escapeHtml(l.icon||'🔗')}</div>
       <h3>${escapeHtml(l.title)}</h3>
       <p>${escapeHtml(l.desc||'')}</p>
@@ -461,7 +461,21 @@ function renderGrid(){
 
 searchInput.addEventListener('input', renderGrid);
 
+// Statistiche (GoatCounter): conta i click sugli strumenti come eventi "click/<id>".
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a[data-tool]');
+  if(!a || !window.goatcounter || !window.goatcounter.count) return;
+  const link = LINKS.find(l=>l.id===a.dataset.tool);
+  window.goatcounter.count({
+    path: 'click/' + a.dataset.tool,
+    title: link ? link.title : a.dataset.tool,
+    event: true,
+  });
+});
+
 renderFilters(); renderGrid();
 </script>
+<!-- Statistiche visite: GoatCounter, senza cookie. Dashboard privata su https://rideq.goatcounter.com -->
+<script data-goatcounter="https://rideq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
