@@ -1,6 +1,6 @@
-# Befort
+# Rideq
 
-Hub degli strumenti di Luca e Daniele: app, simulatori e mappe che trasformano dati complessi in strumenti semplici da usare.
+Hub degli strumenti di Luca, Daniele e Matteo: app, simulatori e mappe che trasformano dati complessi in strumenti semplici da usare.
 
 Sito: https://rideq.github.io/BeFort/
 
