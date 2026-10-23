@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Befort</title>
+<meta name="description" content="Befort è l'hub di Luca e Daniele: app, simulatori e mappe che trasformano dati complessi in strumenti semplici da usare.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Befort">
+<meta property="og:description" content="Laboratorio di idee che risolvono problemi: app, simulatori e mappe gratuiti.">
+<meta property="og:url" content="https://rideq.github.io/BeFort/">
+<meta name="theme-color" content="#FF6B4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FF6B4A'/%3E%3Ctext x='32' y='46' font-family='Arial,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%2315181C'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -71,14 +79,6 @@ body::before{
 }
 .wordmark .be{color:var(--coral);}
 .wordmark .fort{color:var(--ink);}
-
-.hero-tagline{
-  font-size:clamp(1rem,2.4vw,1.25rem);
-  font-weight:600;
-  font-style:italic;
-  color:var(--muted);
-  margin-bottom:32px;
-}
 
 /* purpose pills */
 .pills{
@@ -262,90 +262,8 @@ body::before{
   border-radius:999px;
   border:1.5px solid var(--ink);
 }
-.card .remove-btn{
-  position:absolute;top:12px;right:12px;
-  background:var(--paper);border:2px solid var(--ink);border-radius:50%;
-  width:30px;height:30px;display:flex;align-items:center;justify-content:center;
-  color:#c0524f;cursor:pointer;font-size:14px;
-}
-.card .remove-btn:hover{background:#fdecea;}
-.card .edit-btn{
-  position:absolute;top:12px;right:50px;
-  background:var(--paper);border:2px solid var(--ink);border-radius:50%;
-  width:30px;height:30px;display:flex;align-items:center;justify-content:center;
-  color:var(--ink);cursor:pointer;font-size:13px;
-}
-.card .edit-btn:hover{background:var(--lime);}
-
 /* ── EMPTY ── */
 .empty-state{text-align:center;color:var(--muted);padding:56px 0;display:none;font-size:1.1rem;}
-
-/* ── MODAL ── */
-.modal-overlay{
-  display:none;position:fixed;inset:0;
-  background:rgba(21,24,28,.5);
-  align-items:center;justify-content:center;z-index:100;padding:20px;
-}
-.modal-overlay.open{display:flex;}
-.modal-box{
-  background:var(--surface);border:2px solid var(--ink);
-  border-radius:var(--radius);padding:28px;
-  max-width:420px;width:100%;
-  box-shadow:6px 6px 0 var(--ink);
-}
-.modal-box h3{margin-bottom:16px;font-weight:800;}
-.modal-box label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin:10px 0 4px;}
-.modal-box input{
-  width:100%;padding:10px 14px;
-  border:2px solid var(--ink);border-radius:10px;
-  font-family:inherit;font-size:.9rem;
-}
-.modal-box input:focus{outline:none;border-color:var(--coral);}
-.modal-actions{display:flex;gap:10px;margin-top:20px;}
-
-/* ── ADMIN ── */
-.admin-panel{
-  display:none;background:var(--surface);
-  border:2px solid var(--ink);border-radius:var(--radius);
-  padding:24px;margin-bottom:28px;
-  box-shadow:4px 4px 0 var(--ink);
-}
-.admin-panel.open{display:block;}
-.admin-panel h2{margin-bottom:16px;font-weight:800;}
-.admin-form{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;margin-bottom:12px;
-}
-.admin-form input,.admin-form select{
-  padding:10px 14px;border:2px solid var(--ink);border-radius:10px;
-  font-family:inherit;font-size:.9rem;color:var(--ink);background:var(--paper);
-}
-.admin-form input:focus,.admin-form select:focus{outline:none;border-color:var(--coral);}
-.admin-actions{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{
-  padding:11px 24px;border:2px solid var(--ink);border-radius:10px;
-  background:var(--ink);color:var(--paper);
-  cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700;
-  box-shadow:3px 3px 0 var(--coral);transition:all .12s;
-}
-.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--coral);}
-.btn.secondary{background:var(--surface);color:var(--ink);box-shadow:3px 3px 0 var(--ink);}
-.btn.secondary:hover{background:var(--lime);box-shadow:4px 4px 0 var(--ink);}
-
-/* ── LOGIN ── */
-.login-box{
-  max-width:320px;margin:0 auto 28px;
-  background:var(--surface);border:2px solid var(--ink);
-  border-radius:var(--radius);padding:22px;
-  box-shadow:4px 4px 0 var(--ink);display:none;
-}
-.login-box.open{display:block;}
-.login-box input{
-  width:100%;padding:10px 14px;
-  border:2px solid var(--ink);border-radius:10px;
-  margin-bottom:12px;font-family:inherit;font-size:.9rem;
-}
-.login-box input:focus{outline:none;border-color:var(--coral);}
 
 /* ── PURPOSE SECTION ── */
 .purpose{
@@ -372,17 +290,6 @@ footer{
   font-size:.78rem;padding:28px 24px;
   border-top:1px solid var(--border);
 }
-.admin-toggle{
-  margin-top:10px;
-  padding:5px 14px;
-  border:1.5px solid var(--border);border-radius:999px;
-  background:transparent;color:var(--muted);
-  cursor:pointer;font-size:.72rem;font-family:inherit;
-  opacity:.5;transition:opacity .15s;
-}
-.admin-toggle:hover{opacity:1;}
-.admin-toggle.active{opacity:1;background:var(--ink);color:var(--paper);border-color:var(--ink);}
-
 @media(max-width:600px){
   .featured-card{flex-direction:column;text-align:center;}
   .featured-arrow{display:none;}
@@ -400,7 +307,7 @@ footer{
   </div>
   <div class="hero-inner">
     <!-- Inline Befort logo mark (no external image needed) -->
-    <svg class="logo-mark" viewBox="100 80 540 660" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-mark" role="img" aria-label="Logo Befort" viewBox="100 80 540 660" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(16,16)" opacity="0.85">
         <g fill="none" stroke="#15181C" stroke-width="46" stroke-linecap="round">
           <line x1="260" y1="120" x2="260" y2="400"/><line x1="260" y1="400" x2="260" y2="680"/>
@@ -436,7 +343,6 @@ footer{
     </svg>
 
     <div class="wordmark"><span class="be">Be</span><span class="fort">fort</span></div>
-    <p class="hero-tagline"></p>
 
     <div class="pills">
       <span class="pill coral">🤖 AI-powered</span>
@@ -474,30 +380,8 @@ footer{
 <!-- MAIN CONTENT -->
 <div class="container">
 
-  <div class="login-box" id="loginBox">
-    <input type="password" id="adminPass" placeholder="Password admin">
-    <button class="btn" style="width:100%" onclick="tryLogin()">Accedi</button>
-  </div>
-
-  <div class="admin-panel" id="adminPanel">
-    <h2>Aggiungi un collegamento</h2>
-    <div class="admin-form">
-      <input type="text" id="newTitle" placeholder="Titolo">
-      <input type="url" id="newUrl" placeholder="URL (https://...)">
-      <input type="text" id="newCategory" placeholder="Categoria">
-      <input type="text" id="newIcon" placeholder="Icona (emoji)">
-    </div>
-    <div class="admin-form" style="grid-template-columns:1fr;">
-      <input type="text" id="newDesc" placeholder="Descrizione breve">
-    </div>
-    <div class="admin-actions">
-      <button class="btn" onclick="addLink()">Aggiungi</button>
-      <button class="btn secondary" onclick="logout()">Esci da admin</button>
-    </div>
-  </div>
-
   <div class="toolbar">
-    <input type="text" class="search" id="searchInput" placeholder="🔍  Cerca uno strumento...">
+    <input type="search" class="search" id="searchInput" placeholder="🔍  Cerca uno strumento..." aria-label="Cerca uno strumento">
   </div>
 
   <div class="filter-bar" id="filterBar"></div>
@@ -508,37 +392,13 @@ footer{
 
 </div>
 
-<!-- EDIT MODAL -->
-<div class="modal-overlay" id="editOverlay">
-  <div class="modal-box">
-    <h3>Modifica collegamento</h3>
-    <input type="hidden" id="editId">
-    <label for="editTitle">Titolo</label>
-    <input type="text" id="editTitle">
-    <label for="editUrl">URL</label>
-    <input type="url" id="editUrl">
-    <label for="editCategory">Categoria</label>
-    <input type="text" id="editCategory">
-    <label for="editIcon">Icona (emoji)</label>
-    <input type="text" id="editIcon">
-    <label for="editDesc">Descrizione</label>
-    <input type="text" id="editDesc">
-    <div class="modal-actions">
-      <button class="btn" onclick="saveEdit()">Salva</button>
-      <button class="btn secondary" onclick="closeEdit()">Annulla</button>
-    </div>
-  </div>
-</div>
-
 <footer>
   © 2026 Befort — Studio indipendente
-  <div>
-    <button class="admin-toggle" id="adminToggle">⚙</button>
-  </div>
 </footer>
 
 <script>
-const DEFAULT_LINKS = [
+// Elenco degli strumenti: per aggiungerne uno, aggiungi una riga qui.
+const LINKS = [
   {id:'valutazione',title:'Valutazione Azienda',url:'https://rideq.github.io/Valutazione-Azienda/',desc:'Strumento completo per valutare PMI italiane: EV/EBITDA, DCF, patrimoniale, EV/Revenue con 50+ settori e sensitività.',category:'Finanza',icon:'🏢'},
   {id:'policyos',title:'Bilancio Policy OS',url:'https://rideq.github.io/PolicyOS/',desc:'Simulatore e laboratorio di policy per il bilancio dello Stato italiano: dashboard, analisi, proposte e proiezioni pensionistiche.',category:'Finanza pubblica',icon:'📊'},
   {id:'tracciati',title:'Tracciati Trasformazioni',url:'https://rideq.github.io/TracciatiTrasformazione/',desc:'Applicazione per leggere file Excel ("tracciati") e trasformarli secondo mappature configurabili, con supporto SFTP.',category:'Strumenti dati',icon:'🔁'},
@@ -549,51 +409,32 @@ const DEFAULT_LINKS = [
   {id:'caa',title:'Immagini CAA',url:'https://rideq.github.io/CAA/',desc:'Scrivi una frase, vedi le immagini. Strumento CAA gratuito per bambini con DSA e difficoltà di linguaggio. Pittogrammi ARASAAC + Mulberry Symbols, colori Fitzgerald Key, sintesi vocale italiana.',category:'Accessibilità',icon:'🏫'}
 ];
 
-const ADMIN_PASSWORD = 'befort2026';
-const STORAGE_KEY = 'befort_links';
+// Pulisce eventuali link salvati in passato dal vecchio pannello admin (solo locale).
+try{ localStorage.removeItem('befort_links'); }catch(e){}
 
-function loadLinks(){
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if(raw){
-    try{
-      const stored = JSON.parse(raw);
-      // Migrazione: aggiorna eventuali link salvati che puntano ancora al vecchio dominio.
-      let changed = false;
-      stored.forEach(l=>{
-        if(l && typeof l.url==='string' && l.url.includes('beforteu.github.io')){
-          l.url = l.url.replace('beforteu.github.io','rideq.github.io');
-          changed = true;
-        }
-      });
-      if(changed) saveLinks(stored);
-      return stored;
-    }catch(e){}
-  }
-  return DEFAULT_LINKS;
-}
-function saveLinks(links){ localStorage.setItem(STORAGE_KEY, JSON.stringify(links)); }
-
-let links = loadLinks();
 let activeCategory = 'Tutti';
-let isAdmin = false;
 
 const grid = document.getElementById('grid');
 const filterBar = document.getElementById('filterBar');
 const emptyState = document.getElementById('emptyState');
 const searchInput = document.getElementById('searchInput');
-const adminToggle = document.getElementById('adminToggle');
-const adminPanel = document.getElementById('adminPanel');
-const loginBox = document.getElementById('loginBox');
-const editOverlay = document.getElementById('editOverlay');
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
+// Accetta solo URL http(s): blocca javascript:, data: ecc.
+function safeUrl(url){
+  try{
+    const u = new URL(url, location.href);
+    return (u.protocol==='https:'||u.protocol==='http:') ? u.href : '#';
+  }catch(e){ return '#'; }
+}
+
 function renderFilters(){
-  const cats = ['Tutti', ...new Set(links.map(l=>l.category).filter(Boolean))];
+  const cats = ['Tutti', ...new Set(LINKS.map(l=>l.category).filter(Boolean))];
   filterBar.innerHTML = cats.map(c=>
-    `<button class="filter-btn ${c===activeCategory?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
+    `<button type="button" class="filter-btn ${c===activeCategory?'active':''}" data-cat="${escapeHtml(c)}" aria-pressed="${c===activeCategory}">${escapeHtml(c)}</button>`
   ).join('');
   filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{ activeCategory=btn.dataset.cat; renderFilters(); renderGrid(); });
@@ -602,16 +443,14 @@ function renderFilters(){
 
 function renderGrid(){
   const term = searchInput.value.trim().toLowerCase();
-  const filtered = links.filter(l=>{
+  const filtered = LINKS.filter(l=>{
     const matchCat = activeCategory==='Tutti' || l.category===activeCategory;
-    const matchTerm = !term || l.title.toLowerCase().includes(term) || (l.desc||'').toLowerCase().includes(term);
-    return matchCat && matchTerm;
+    const haystack = [l.title, l.desc, l.category].join(' ').toLowerCase();
+    return matchCat && (!term || haystack.includes(term));
   });
   grid.innerHTML = filtered.map(l=>`
-    <a class="card" href="${l.url}" target="_blank" rel="noopener">
-      ${isAdmin?`<div class="edit-btn" onclick="event.preventDefault();event.stopPropagation();openEdit('${l.id}')">✎</div>`:''}
-      ${isAdmin?`<div class="remove-btn" onclick="event.preventDefault();event.stopPropagation();removeLink('${l.id}')">✕</div>`:''}
-      <div class="icon">${l.icon||'🔗'}</div>
+    <a class="card" href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">
+      <div class="icon" aria-hidden="true">${escapeHtml(l.icon||'🔗')}</div>
       <h3>${escapeHtml(l.title)}</h3>
       <p>${escapeHtml(l.desc||'')}</p>
       ${l.category?`<span class="tag">${escapeHtml(l.category)}</span>`:''}
@@ -620,63 +459,6 @@ function renderGrid(){
   emptyState.style.display = filtered.length?'none':'block';
 }
 
-function addLink(){
-  const title=document.getElementById('newTitle').value.trim();
-  const url=document.getElementById('newUrl').value.trim();
-  const category=document.getElementById('newCategory').value.trim();
-  const icon=document.getElementById('newIcon').value.trim();
-  const desc=document.getElementById('newDesc').value.trim();
-  if(!title||!url){ alert('Titolo e URL sono obbligatori.'); return; }
-  links.push({id:'l'+Date.now(),title,url,desc,category:category||'Altro',icon:icon||'🔗'});
-  saveLinks(links);
-  ['newTitle','newUrl','newCategory','newIcon','newDesc'].forEach(id=>document.getElementById(id).value='');
-  renderFilters(); renderGrid();
-}
-
-function removeLink(id){
-  if(!confirm('Rimuovere questo collegamento?')) return;
-  links=links.filter(l=>l.id!==id); saveLinks(links); renderFilters(); renderGrid();
-}
-
-function openEdit(id){
-  const link=links.find(l=>l.id===id); if(!link) return;
-  ['id','Title','Url','Category','Icon','Desc'].forEach(k=>{
-    const el=document.getElementById('edit'+k); if(el) el.value=link[k.toLowerCase()]||'';
-  });
-  document.getElementById('editId').value=link.id;
-  editOverlay.classList.add('open');
-}
-function closeEdit(){ editOverlay.classList.remove('open'); }
-function saveEdit(){
-  const id=document.getElementById('editId').value;
-  const title=document.getElementById('editTitle').value.trim();
-  const url=document.getElementById('editUrl').value.trim();
-  if(!title||!url){ alert('Titolo e URL obbligatori.'); return; }
-  const link=links.find(l=>l.id===id);
-  if(link){
-    link.title=title; link.url=url;
-    link.category=document.getElementById('editCategory').value.trim()||'Altro';
-    link.icon=document.getElementById('editIcon').value.trim()||'🔗';
-    link.desc=document.getElementById('editDesc').value.trim();
-    saveLinks(links); renderFilters(); renderGrid();
-  }
-  closeEdit();
-}
-editOverlay.addEventListener('click',e=>{ if(e.target===editOverlay) closeEdit(); });
-
-function tryLogin(){
-  if(document.getElementById('adminPass').value===ADMIN_PASSWORD){
-    isAdmin=true; loginBox.classList.remove('open'); adminPanel.classList.add('open');
-    adminToggle.classList.add('active'); adminToggle.textContent='🔓 Admin';
-    document.getElementById('adminPass').value=''; renderGrid();
-  } else { alert('Password errata.'); }
-}
-function logout(){
-  isAdmin=false; adminPanel.classList.remove('open');
-  adminToggle.classList.remove('active'); adminToggle.textContent='⚙';
-  renderGrid();
-}
-adminToggle.addEventListener('click',()=>{ isAdmin ? logout() : loginBox.classList.toggle('open'); });
 searchInput.addEventListener('input', renderGrid);
 
 renderFilters(); renderGrid();
